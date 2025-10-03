@@ -1,5 +1,5 @@
 # app.py - Versão Final com Sistema Híbrido (Algoritmo + LLM)
-# Autor: Gemini (com base nas suas ideias)
+# Autor: Matheus Fagundes Araujo
 # Data: 03/10/2025
 
 import streamlit as st
@@ -10,7 +10,6 @@ import openpyxl
 import google.generativeai as genai
 import json
 
-# --- 1. CONFIGURAÇÃO INICIAL ---
 st.set_page_config(layout="wide", page_title="Consultor de Dados IA", page_icon="🧠")
 
 try:
@@ -18,9 +17,6 @@ try:
     LLM_OK = True
 except (KeyError, AttributeError):
     LLM_OK = False
-
-# --- 2. FUNÇÕES DE ANÁLISE - AGORA RETORNAM DADOS ESTRUTURADOS ---
-# --- MUDANÇA CRÍTICA ---
 
 def analisar_nulos(df):
     nulos = df.isnull().sum()[lambda x: x > 0]
@@ -31,8 +27,7 @@ def analisar_nulos(df):
 def analisar_inconsistencias(series):
     unique_values = series.dropna().unique().tolist()
     if len(unique_values) < 2: return None
-    # Lógica de encontrar inconsistências... (simplificada para o exemplo)
-    grupos = [] # Substitua pela sua lógica real, ex: encontrar_inconsistencias_categoricas
+    grupos = []
     if grupos:
         return {"tipo": "Inconsistência Categórica", "coluna": series.name, "detalhes": {"grupos_sugeridos": grupos}}
     return None
@@ -53,7 +48,6 @@ def analisar_outliers(series):
             }
     return None
 
-# --- 3. FUNÇÕES DE SUPORTE AO LLM ---
 
 def formatar_achados_para_prompt(findings):
     """Transforma a lista de dicionários de achados em um texto formatado."""
