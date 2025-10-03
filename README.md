@@ -1,39 +1,42 @@
-# 🤖 Assistente de Pré-processamento para Machine Learning
+# 🧠 Consultor de Dados IA: Um Assistente Híbrido para Pré-processamento de ML
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Framework: Streamlit](https://img.shields.io/badge/Framework-Streamlit-red.svg)
+![Framework](https://img.shields.io/badge/Framework-Streamlit-red.svg)
+![AI](https://img.shields.io/badge/AI-Google%20Gemini-purple.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-Uma ferramenta interativa construída com Streamlit que analisa seu dataset e sugere os passos de pré-processamento essenciais para otimizar modelos de Regressão e Classificação.
-
-Este projeto foi desenvolvido como parte de um hackathon para acelerar o fluxo de trabalho de engenheiros de dados e cientistas de dados.
+Este não é apenas um validador de dados. É um **consultor de IA híbrido** que combina a velocidade da análise algorítmica com o raciocínio contextual de um Large Language Model (LLM) para criar um plano de ação de pré-processamento sob medida para o seu projeto de Machine Learning.
 
 ---
 
-### Demo da Aplicação
+### ✨ O Conceito: Inteligência Híbrida
 
-> **Nota:** É altamente recomendável que você tire um print (screenshot) da sua aplicação funcionando e substitua o link abaixo. Isso torna o projeto muito mais atrativo!
+Nossa ferramenta opera em duas fases para oferecer o melhor dos dois mundos:
+
+1.  **Análise Algorítmica Rápida:** Primeiro, algoritmos estatísticos e determinísticos escaneiam seu dataset em segundos para gerar um **"dossiê de evidências"** — um relatório quantitativo e preciso sobre problemas como outliers, valores nulos, inconsistências e mais.
+2.  **Inteligência Contextual com LLM:** Em seguida, o LLM (Google Gemini) atua como um **cientista de dados sênior**. Ele recebe o dossiê, analisa o seu objetivo de negócio (descrito por você) e a sua variável alvo, e então **prioriza inteligentemente** quais problemas são mais críticos, explicando o porquê e como resolvê-los.
+
+### 📸 Demo da Aplicação
+
+> **Nota:** Um bom screenshot é fundamental! Tente capturar a tela mostrando o "Plano de Ação" gerado pela IA.
 
 ![Demo da Aplicação](URL_DA_SUA_IMAGEM_AQUI.png)
 
 ---
 
-### ✨ Features Principais
+### 🚀 Features Principais
 
-O assistente analisa seu dataset em busca dos seguintes problemas, fornecendo justificativas focadas no impacto em Machine Learning:
+* **Análise Algorítmica Abrangente:** Detecção rápida de nulos, outliers (IQR), inconsistências categóricas, tipos de dados, escala e assimetria.
+* **Contextualização via Prompt:** Permite que você defina sua variável alvo e o objetivo do seu modelo, garantindo que as recomendações sejam relevantes.
+* **Geração de Plano de Ação por IA:** O LLM atua como um consultor, analisando as evidências e gerando um plano de ação priorizado, com justificativas claras e focadas no seu objetivo.
+* **Interface Interativa:** Construído com Streamlit para uma experiência de usuário fluida e intuitiva.
 
-* **Análise de Valores Nulos:** Identifica dados faltantes que podem quebrar o treinamento de modelos.
-* **Padronização de Features Categóricas:** Encontra e agrupa categorias inconsistentes (ex: "SP" vs "São Paulo") para evitar a criação de features desnecessárias.
-* **Conversão de Tipos de Dados:** Detecta colunas numéricas armazenadas como texto, um passo obrigatório para a modelagem.
-* **Detecção de Outliers:** Sinaliza valores extremos que podem distorcer modelos sensíveis a eles.
-* **Análise de Escala (Feature Scaling):** Verifica se as features numéricas possuem escalas muito diferentes, o que pode prejudicar algoritmos baseados em distância.
-* **Análise de Assimetria (Skewness):** Identifica distribuições de dados muito assimétricas que podem ser normalizadas para melhorar a performance do modelo.
-
-### 🚀 Tecnologias Utilizadas
+### 💻 Tecnologias Utilizadas
 
 * **Python 3.9+**
-* **Streamlit:** Para a criação da interface web interativa.
-* **Pandas:** Para a manipulação e análise dos dados.
+* **Streamlit:** Para a interface web.
+* **Pandas:** Para a manipulação dos dados.
+* **google-generativeai:** Para a integração com o LLM Gemini.
 * **thefuzz:** Para a análise de similaridade de strings.
 
 ---
@@ -47,52 +50,57 @@ Siga os passos abaixo para executar a aplicação no seu ambiente.
 * [Python 3.9](https://www.python.org/downloads/) ou superior
 * [Git](https://git-scm.com/downloads)
 
-#### Instalação
+#### 1. Instalação
 
-1.  **Clone o repositório:**
-    ```bash
-    git clone [https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git](https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git)
-    cd SEU-REPOSITORIO
+```bash
+# Clone o repositório
+git clone [https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git](https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git)
+cd SEU-REPOSITORIO
+
+# Crie e ative um ambiente virtual
+python3 -m venv .venv
+source .venv/bin/activate
+# No Windows: .venv\Scripts\activate
+
+# Instale as dependências
+python3 -m pip install -r requirements.txt
+```
+*(Certifique-se de que seu `requirements.txt` contém `streamlit`, `pandas`, `thefuzz`, `python-levenshtein`, `openpyxl` e `google-generativeai`)*
+
+#### 2. Configurar a Chave de API
+
+Este projeto precisa de uma chave de API do Google Gemini para funcionar.
+
+1.  Crie uma pasta chamada `.streamlit` na raiz do seu projeto.
+2.  Dentro dela, crie um arquivo chamado `secrets.toml`.
+3.  Adicione sua chave de API ao arquivo da seguinte forma:
+    ```toml
+    # .streamlit/secrets.toml
+    GEMINI_API_KEY = "SUA_CHAVE_DE_API_AQUI"
     ```
 
-2.  **Crie e ative um ambiente virtual:**
-    * **macOS / Linux:**
-        ```bash
-        python3 -m venv .venv
-        source .venv/bin/activate
-        ```
-    * **Windows:**
-        ```bash
-        python -m venv .venv
-        .venv\Scripts\activate
-        ```
+#### 3. Execução
 
-3.  **Instale as dependências:**
-    (Certifique-se de que você tem um arquivo `requirements.txt` com as bibliotecas. Se não tiver, crie-o e adicione `streamlit`, `pandas`, `thefuzz`, `python-levenshtein`, `openpyxl`).
-    ```bash
-    python3 -m pip install -r requirements.txt
-    ```
-
-4.  **Execute a aplicação:**
-    ```bash
-    streamlit run app.py
-    ```
-
+```bash
+streamlit run app.py
+```
 A aplicação estará disponível no seu navegador no endereço `http://localhost:8501`.
 
 ### 📝 Como Usar
 
 1.  Acesse a aplicação no seu navegador.
-2.  Clique no botão "Browse files" e faça o upload de um arquivo de dados (`.csv` ou `.xlsx`).
-3.  Aguarde a análise ser concluída.
-4.  Navegue pelas seções de análise para ver os problemas encontrados e as sugestões de tratamento com justificativas focadas em Machine Learning.
+2.  Faça o upload de um arquivo de dados (`.csv` ou `.xlsx`).
+3.  Na barra lateral, **selecione sua variável alvo** e **descreva o objetivo do seu modelo**.
+4.  Clique no botão **"Gerar Plano de Ação com IA 🧠"**.
+5.  Analise as recomendações priorizadas e justificadas fornecidas pelo consultor de IA.
+
+---
 
 ### 🔮 Próximos Passos (Roadmap)
 
 - [ ] Gerar automaticamente o código Python (com Scikit-Learn) para aplicar as correções sugeridas.
 - [ ] Adicionar suporte para conexão direta com bancos de dados.
-- [ ] Implementar mais análises (ex: detecção de dados sensíveis - PII).
-- [ ] Permitir o download de um relatório de "saúde dos dados".
+- [ ] Permitir que o usuário ajuste os parâmetros dos algoritmos (ex: threshold de outlier).
 
 ---
 
@@ -102,4 +110,4 @@ Feito com ❤️ por **Matheus Fagundes Araujo**.
 
 ### 📜 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está sob a licença MIT.
