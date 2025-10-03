@@ -1,5 +1,8 @@
 streamlit
 pandas
+numpy
 thefuzz
 python-levenshtein
 openpyxl
+google-generativeai
+scikit-learn
