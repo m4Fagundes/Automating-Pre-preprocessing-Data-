@@ -98,7 +98,7 @@ A aplicação estará disponível no seu navegador no endereço `http://localhos
 
 ### 👤 Autor
 
-Feito com ❤️ por **[Seu Nome Aqui]**.
+Feito com ❤️ por **Matheus Fagundes Araujo**.
 
 ### 📜 Licença
 
