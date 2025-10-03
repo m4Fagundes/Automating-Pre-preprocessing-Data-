@@ -1,0 +1,47 @@
+# --- Ambientes Virtuais ---
+# Ignora a pasta do ambiente virtual para não enviar bibliotecas para o repositório.
+# Este é o item mais importante!
+.venv/
+venv/
+env/
+ENV/
+
+# --- Python Cache e Arquivos Compilados ---
+# Arquivos gerados pelo Python que não precisam ser versionados.
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- IDEs e Editores de Código ---
+# Configurações específicas do seu editor que não são relevantes para outros desenvolvedores.
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- Streamlit ---
+# Pasta de configuração e segredos do Streamlit.
+.streamlit/
+
+# --- Arquivos de Sistema Operacional ---
+# Arquivos de metadados do macOS e Windows.
+.DS_Store
+Thumbs.db
+
+# --- Logs e Variáveis de Ambiente ---
+# Nunca comite logs ou arquivos com senhas/chaves de API.
+*.log
+.env
+
+# --- Arquivos de Dados Temporários ---
+# ATENÇÃO: Para o seu projeto, você provavelmente QUER enviar o arquivo
+# 'dados_sujos.xlsx' para que a demonstração funcione.
+# Se no futuro você tiver outros arquivos de dados que NÃO devem ir
+# para o GitHub (por serem grandes ou sensíveis), adicione-os aqui.
+# Exemplo:
+# dados_secretos.csv
+# large_dataset.parquet
+
+# --- Jupyter Notebook (se aplicável) ---
+.ipynb_checkpoints/
