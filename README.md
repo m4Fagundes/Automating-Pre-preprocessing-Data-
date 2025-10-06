@@ -1,43 +1,38 @@
-# 🧠 Consultor de Dados IA: Um Assistente Híbrido para Pré-processamento de ML
+# 🚀 Consultor de Dados IA
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)
 ![Framework](https://img.shields.io/badge/Framework-Streamlit-red.svg)
 ![AI](https://img.shields.io/badge/AI-Google%20Gemini-purple.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-Este não é apenas um validador de dados. É um **consultor de IA híbrido** que combina a velocidade da análise algorítmica com o raciocínio contextual de um Large Language Model (LLM) para criar um plano de ação de pré-processamento sob medida para o seu projeto de Machine Learning.
+Uma ferramenta de IA híbrida que atua como seu co-piloto na preparação de dados para Machine Learning. O sistema combina a velocidade da análise algorítmica com o raciocínio contextual de um Large Language Model (LLM) para criar e aplicar um plano de tratamento de dados personalizado.
+
+Para uma demonstração imediata, o assistente já vem com datasets clássicos do Kaggle (Titanic e Preços de Casas) prontos para análise!
 
 ---
 
 ### ✨ O Conceito: Inteligência Híbrida
 
-Nossa ferramenta opera em duas fases para oferecer o melhor dos dois mundos:
-
-1.  **Análise Algorítmica Rápida:** Primeiro, algoritmos estatísticos e determinísticos escaneiam seu dataset em segundos para gerar um **"dossiê de evidências"** — um relatório quantitativo e preciso sobre problemas como outliers, valores nulos, inconsistências e mais.
-2.  **Inteligência Contextual com LLM:** Em seguida, o LLM (Google Gemini) atua como um **cientista de dados sênior**. Ele recebe o dossiê, analisa o seu objetivo de negócio (descrito por você) e a sua variável alvo, e então **prioriza inteligentemente** quais problemas são mais críticos, explicando o porquê e como resolvê-los.
-
-### 📸 Demo da Aplicação
-
-> **Nota:** Um bom screenshot é fundamental! Tente capturar a tela mostrando o "Plano de Ação" gerado pela IA.
-
-![Demo da Aplicação](URL_DA_SUA_IMAGEM_AQUI.png)
+1.  **Análise Algorítmica Rápida:** Algoritmos precisos escaneiam seu dataset para gerar um **"dossiê de evidências"** quantitativo sobre problemas como outliers, valores nulos e inconsistências.
+2.  **Inteligência Contextual com LLM:** Um LLM (Google Gemini) atua como um **cientista de dados sênior**. Ele recebe o dossiê, analisa o seu objetivo de negócio e sua variável alvo, e então **prioriza inteligentemente** quais problemas são mais críticos, explicando o porquê e como resolvê-los em um plano de ação interativo.
 
 ---
 
 ### 🚀 Features Principais
 
-* **Análise Algorítmica Abrangente:** Detecção rápida de nulos, outliers (IQR), inconsistências categóricas, tipos de dados, escala e assimetria.
-* **Contextualização via Prompt:** Permite que você defina sua variável alvo e o objetivo do seu modelo, garantindo que as recomendações sejam relevantes.
-* **Geração de Plano de Ação por IA:** O LLM atua como um consultor, analisando as evidências e gerando um plano de ação priorizado, com justificativas claras e focadas no seu objetivo.
-* **Interface Interativa:** Construído com Streamlit para uma experiência de usuário fluida e intuitiva.
+- **Datasets de Exemplo Inclusos:** Comece a usar a ferramenta instantaneamente com os datasets clássicos do Kaggle.
+- **Análise Algorítmica Abrangente:** Detecção rápida de nulos, outliers, inconsistências, tipos de dados, e mais.
+- **Contextualização via Prompt:** Permite que você defina sua variável alvo e o objetivo do seu modelo para garantir recomendações relevantes.
+- **Plano de Ação Interativo por IA:** Receba um plano priorizado e aplique as transformações sugeridas com um clique.
+- **Pacote de Entrega Automatizado:** Baixe um arquivo `.zip` contendo os dados limpos (`.csv`) e um relatório completo (`.md`) das transformações aplicadas.
 
 ### 💻 Tecnologias Utilizadas
 
-* **Python 3.9+**
-* **Streamlit:** Para a interface web.
-* **Pandas:** Para a manipulação dos dados.
-* **google-generativeai:** Para a integração com o LLM Gemini.
-* **thefuzz:** Para a análise de similaridade de strings.
+- **Python 3.9+**
+- **Streamlit**
+- **Pandas**
+- **Google Generative AI (Gemini)**
+- **Scikit-learn**, **thefuzz**
 
 ---
 
@@ -45,13 +40,12 @@ Nossa ferramenta opera em duas fases para oferecer o melhor dos dois mundos:
 
 Siga os passos abaixo para executar a aplicação no seu ambiente.
 
-#### Pré-requisitos
+#### 1. (Obrigatório) Prepare os Datasets de Exemplo
+Para que a funcionalidade de datasets de exemplo funcione, você precisa:
+1.  Criar uma pasta chamada `sample_datasets` na raiz do projeto.
+2.  Baixar os arquivos `train.csv` do **Titanic** e **House Prices** do Kaggle e salvá-los dentro desta pasta com os nomes `titanic_train.csv` e `house_prices_train.csv`.
 
-* [Python 3.9](https://www.python.org/downloads/) ou superior
-* [Git](https://git-scm.com/downloads)
-
-#### 1. Instalação
-
+#### 2. Instalação
 ```bash
 # Clone o repositório
 git clone [https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git](https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git)
@@ -65,48 +59,38 @@ source .venv/bin/activate
 # Instale as dependências
 python3 -m pip install -r requirements.txt
 ```
-*(Certifique-se de que seu `requirements.txt` contém `streamlit`, `pandas`, `thefuzz`, `python-levenshtein`, `openpyxl` e `google-generativeai`)*
+*(Certifique-se de que seu `requirements.txt` está atualizado).*
 
-#### 2. Configurar a Chave de API
-
-Este projeto precisa de uma chave de API do Google Gemini para funcionar.
-
+#### 3. Configure a Chave de API
+O projeto precisa de uma chave de API do Google Gemini:
 1.  Crie uma pasta chamada `.streamlit` na raiz do seu projeto.
 2.  Dentro dela, crie um arquivo chamado `secrets.toml`.
-3.  Adicione sua chave de API ao arquivo da seguinte forma:
+3.  Adicione sua chave de API ao arquivo:
     ```toml
     # .streamlit/secrets.toml
     GEMINI_API_KEY = "SUA_CHAVE_DE_API_AQUI"
     ```
 
-#### 3. Execução
-
+#### 4. Execução
 ```bash
 streamlit run app.py
 ```
-A aplicação estará disponível no seu navegador no endereço `http://localhost:8501`.
-
-### 📝 Como Usar
-
-1.  Acesse a aplicação no seu navegador.
-2.  Faça o upload de um arquivo de dados (`.csv` ou `.xlsx`).
-3.  Na barra lateral, **selecione sua variável alvo** e **descreva o objetivo do seu modelo**.
-4.  Clique no botão **"Gerar Plano de Ação com IA 🧠"**.
-5.  Analise as recomendações priorizadas e justificadas fornecidas pelo consultor de IA.
 
 ---
 
-### 🔮 Próximos Passos (Roadmap)
+### 📝 Como Usar a Ferramenta
 
-- [ ] Gerar automaticamente o código Python (com Scikit-Learn) para aplicar as correções sugeridas.
-- [ ] Adicionar suporte para conexão direta com bancos de dados.
-- [ ] Permitir que o usuário ajuste os parâmetros dos algoritmos (ex: threshold de outlier).
+1.  **Selecione uma Fonte de Dados:** Ao iniciar, escolha um dos datasets de exemplo no menu principal ou selecione a opção para fazer o upload do seu próprio arquivo.
+2.  **Configure a Análise:** Na barra lateral, selecione sua **variável alvo** e **descreva o objetivo** do seu modelo.
+3.  **Gere o Plano de Ação:** Clique no botão "Gerar Plano de Ação com IA 🧠".
+4.  **Aplique as Ações:** Revise as recomendações priorizadas pela IA e clique nos botões "Aplicar" para executar as transformações.
+5.  **Baixe o Pacote:** Após aplicar as ações, um botão de download aparecerá. Clique nele para baixar um arquivo `.zip` com o dataset limpo e um relatório detalhado.
 
 ---
 
 ### 👤 Autor
 
-Feito com ❤️ por **Matheus Fagundes Araujo**.
+Feito por **[Seu Nome Aqui]**.
 
 ### 📜 Licença
 
