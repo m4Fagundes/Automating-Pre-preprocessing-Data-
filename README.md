@@ -90,7 +90,7 @@ streamlit run app.py
 
 ### 👤 Autor
 
-Feito por **[Seu Nome Aqui]**.
+Feito por **Matheus Fagundes Araujo**.
 
 ### 📜 Licença
 
